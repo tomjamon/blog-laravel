@@ -2,12 +2,20 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 
+use Illuminate\Contracts\Foundation\Application;
+use Illuminate\Contracts\View\Factory;
+use Illuminate\View\View;
+
+/**
+ * Class HomeController
+ * @package App\Http\Controllers
+ */
 class HomeController extends Controller
 {
     /**
-     * Create a new controller instance.
+     * Middleware (une couche de notre oignon) vérifiant que la personne est connecté
+     * auth / authentfied / connecté
      *
      * @return void
      */
@@ -17,9 +25,9 @@ class HomeController extends Controller
     }
 
     /**
-     * Show the application dashboard.
+     * Tableau de bord une fois connecté
      *
-     * @return \Illuminate\Contracts\Support\Renderable
+     * @return Application|Factory|View
      */
     public function index()
     {
