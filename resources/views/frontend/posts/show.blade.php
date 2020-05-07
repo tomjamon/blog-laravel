@@ -1,95 +1,95 @@
-<!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+@extends('layouts.app')
 
-        <title>Laravel</title>
+@section('content')
+    <!--Title-->
+    <div class="font-sans">
+        <span class="text-base md:text-sm text-teal-500 font-bold">&lt;<span>
+        <a href="{{ url('/') }}" class="text-base md:text-sm text-teal-500 font-bold no-underline hover:underline">BACK TO BLOG</a>
+        <br>
+        <h1 class="font-bold font-sans break-normal text-gray-900 pt-6 pb-2 text-3xl md:text-4xl">{{ $post->title }}</h1>
+        <p class="text-sm md:text-base font-normal text-gray-600">{{ $post->created_at->diffForHumans() }}</p>
+    </div>
 
-        <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
+    <!--Lead Para-->
+    <p>
+        {{ $post->content }}
+    </p>
+    <!--Tags -->
+    <div class="text-base md:text-sm text-gray-500 px-4 py-6">
+        Tags: <a href="#" class="text-base md:text-sm text-teal-500 no-underline hover:underline">Link</a> . <a href="#" class="text-base md:text-sm text-teal-500 no-underline hover:underline">Link</a>
+    </div>
 
-        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-        <!-- Styles -->
-        <style>
-            html, body {
-                background-color: #fff;
-                color: #636b6f;
-                font-family: 'Nunito', sans-serif;
-                font-weight: 200;
-                height: 100vh;
-                margin: 0;
-            }
+    <!--Divider-->
+    <hr class="border-b-2 border-gray-400 mb-8 mx-4">
 
-            .full-height {
-                height: 100vh;
-            }
+    <!--Subscribe-->
+    <div class="container px-4">
+        <div class="font-sans bg-white rounded-lg shadow-md p-4 text-center">
+            <h2 class="font-bold break-normal text-xl md:text-3xl">Subscribe to my Newsletter</h2>
+            <h3 class="font-bold break-normal font-normal text-gray-600 text-sm md:text-base">Get the latest posts delivered right to your inbox</h3>
+            <div class="w-full text-center pt-4">
+                <form action="#">
+                    <div class="max-w-xl mx-auto p-1 pr-0 flex flex-wrap items-center">
+                        <input type="email" placeholder="youremail@example.com" class="flex-1 mt-4 appearance-none border border-gray-400 rounded shadow-md p-3 text-gray-600 mr-2 focus:outline-none">
+                        <button type="submit" class="flex-1 mt-4 block md:inline-block appearance-none bg-teal-500 text-white text-base font-semibold tracking-wider uppercase py-4 rounded shadow hover:bg-teal-400">Subscribe</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <!-- /Subscribe-->
 
-            .flex-center {
-                align-items: center;
-                display: flex;
-                justify-content: center;
-            }
+    <!--Divider-->
+    <hr class="border-b-2 border-gray-400 mb-8 mx-4">
 
-            .position-ref {
-                position: relative;
-            }
+    <!--Next & Prev Links-->
+    <div class="font-sans flex justify-between content-center px-4 pb-12">
+        <div class="text-left">
+            <span class="text-xs md:text-sm font-normal text-gray-600">&lt; Previous Post</span><br>
+            <p><a href="#" class="break-normal text-base md:text-sm text-teal-500 font-bold no-underline hover:underline">Blog title</a></p>
+        </div>
+        <div class="text-right">
+            <span class="text-xs md:text-sm font-normal text-gray-600">Next Post &gt;</span><br>
+            <p><a href="#" class="break-normal text-base md:text-sm text-teal-500 font-bold no-underline hover:underline">Blog title</a></p>
+        </div>
+    </div>
 
-            .top-right {
-                position: absolute;
-                right: 10px;
-                top: 18px;
-            }
+    <!--/container-->
 
-            .content {
-                text-align: center;
-            }
+    <footer class="bg-white border-t border-gray-400 shadow">
+    <div class="container max-w-4xl mx-auto flex py-8">
 
-            .title {
-                font-size: 84px;
-            }
-
-            .links > a {
-                color: #636b6f;
-                padding: 0 25px;
-                font-size: 13px;
-                font-weight: 600;
-                letter-spacing: .1rem;
-                text-decoration: none;
-                text-transform: uppercase;
-            }
-
-            .m-b-md {
-                margin-bottom: 30px;
-            }
-        </style>
-    </head>
-    <body>
-        <div class="flex-center position-ref full-height">
-            @if (Route::has('login'))
-                <div class="top-right links">
-                    <a href="{{ route('front.index') }}">Accueil</a>
-
-                    @auth
-                        <a href="{{ url('/home') }}">Home</a>
-                    @else
-                        <a href="{{ route('login') }}">Login</a>
-
-                        @if (Route::has('register'))
-                            <a href="{{ route('register') }}">Register</a>
-                        @endif
-                    @endauth
+        <div class="w-full mx-auto flex flex-wrap">
+            <div class="flex w-full md:w-1/2 ">
+                <div class="px-8">
+                    <h3 class="font-bold text-gray-900">About</h3>
+                    <p class="py-4 text-gray-600 text-sm">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas vel mi ut felis tempus commodo nec id erat. Suspendisse consectetur dapibus velit ut lacinia.
+                    </p>
                 </div>
-            @endif
+            </div>
 
-            <div class="content">
-                <div class="title m-b-md">
-                    {{ $post->title }}
-                </div>
-                <div class=" m-b-md">
-                    {{ $post->content }}
+            <div class="flex w-full md:w-1/2">
+                <div class="px-8">
+                    <h3 class="font-bold text-gray-900">Social</h3>
+                    <ul class="list-reset items-center text-sm pt-3">
+                        <li>
+                            <a class="inline-block text-gray-600 no-underline hover:text-gray-900 hover:text-underline py-1" href="#">Add social link</a>
+                        </li>
+                        <li>
+                            <a class="inline-block text-gray-600 no-underline hover:text-gray-900 hover:text-underline py-1" href="#">Add social link</a>
+                        </li>
+                        <li>
+                            <a class="inline-block text-gray-600 no-underline hover:text-gray-900 hover:text-underline py-1" href="#">Add social link</a>
+                        </li>
+                    </ul>
                 </div>
             </div>
         </div>
-    </body>
-</html>
+
+
+
+    </div>
+</footer>
+
+@endsection

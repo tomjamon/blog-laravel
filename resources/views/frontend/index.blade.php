@@ -1,94 +1,57 @@
-<!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+@extends('layouts.app')
 
-        <title>Laravel</title>
+@section('content')
+    <div class="font-sans">
+        @foreach ($posts as $post)
+            <!--Title-->
+            <a href="{{ route('front.posts.show', $post->slug) }}" class="font-bold font-sans break-normal text-gray-900 pt-6 pb-2 text-3xl md:text-4xl">
+                {{ $post->title }}
+            </a>
+            <p class="text-sm md:text-base font-normal text-gray-600">{{ $post->created_at->diffForHumans() }}</p>
+        @endforeach
+    </div>
 
-        <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
+<!--Divider-->
+<hr class="border-b-2 border-gray-400 mb-8 mx-4">
 
-        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-        <!-- Styles -->
-        <style>
-            html, body {
-                background-color: #fff;
-                color: #636b6f;
-                font-family: 'Nunito', sans-serif;
-                font-weight: 200;
-                height: 100vh;
-                margin: 0;
-            }
+</div>
+<!--/container-->
 
-            .full-height {
-                height: 100vh;
-            }
+<footer class="bg-white border-t border-gray-400 shadow">
+    <div class="container max-w-4xl mx-auto flex py-8">
 
-            .flex-center {
-                align-items: center;
-                display: flex;
-                justify-content: center;
-            }
-
-            .position-ref {
-                position: relative;
-            }
-
-            .top-right {
-                position: absolute;
-                right: 10px;
-                top: 18px;
-            }
-
-            .content {
-                text-align: center;
-            }
-
-            .title {
-                font-size: 84px;
-            }
-
-            .links > a {
-                color: #636b6f;
-                padding: 0 25px;
-                font-size: 13px;
-                font-weight: 600;
-                letter-spacing: .1rem;
-                text-decoration: none;
-                text-transform: uppercase;
-            }
-
-            .m-b-md {
-                margin-bottom: 30px;
-            }
-        </style>
-    </head>
-    <body>
-        <div class="flex-center position-ref full-height">
-            @if (Route::has('login'))
-                <div class="top-right links">
-                    @auth
-                        <a href="{{ url('/home') }}">Home</a>
-                    @else
-                        <a href="{{ route('login') }}">Login</a>
-
-                        @if (Route::has('register'))
-                            <a href="{{ route('register') }}">Register</a>
-                        @endif
-                    @endauth
+        <div class="w-full mx-auto flex flex-wrap">
+            <div class="flex w-full md:w-1/2 ">
+                <div class="px-8">
+                    <h3 class="font-bold text-gray-900">About</h3>
+                    <p class="py-4 text-gray-600 text-sm">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas vel mi ut felis tempus commodo nec id erat. Suspendisse consectetur dapibus velit ut lacinia.
+                    </p>
                 </div>
-            @endif
-            <div class="content">
-                <div class="title m-b-md">
-                    Laravel
+            </div>
+
+            <div class="flex w-full md:w-1/2">
+                <div class="px-8">
+                    <h3 class="font-bold text-gray-900">Social</h3>
+                    <ul class="list-reset items-center text-sm pt-3">
+                        <li>
+                            <a class="inline-block text-gray-600 no-underline hover:text-gray-900 hover:text-underline py-1" href="#">Add social link</a>
+                        </li>
+                        <li>
+                            <a class="inline-block text-gray-600 no-underline hover:text-gray-900 hover:text-underline py-1" href="#">Add social link</a>
+                        </li>
+                        <li>
+                            <a class="inline-block text-gray-600 no-underline hover:text-gray-900 hover:text-underline py-1" href="#">Add social link</a>
+                        </li>
+                    </ul>
                 </div>
-                @foreach ($posts as $post)
-                    <a href="{{ route('front.posts.show', $post->slug) }}">
-                        {{ $post->title }}
-                    </a><br>
-                @endforeach
             </div>
         </div>
-    </body>
-</html>
+
+
+
+    </div>
+</footer>
+
+
+@endsection
