@@ -1,6 +1,6 @@
 # Learn Laravel : Créer un blog communautaire
 
-## Episode 4 - Première Version
+## Episode 5 - Première Version
 
 Projet de création d'un blog communautaire
 
@@ -8,6 +8,7 @@ Projet de création d'un blog communautaire
 - [Session](https://laravel.com/docs/session) 
 - [Eloquent](https://laravel.com/docs/eloquent)
 - [Migrations](https://laravel.com/docs/migrations)
+- [Tailwind](https://tailwindcss.com/docs/installation)
 
 ## A propos
 
