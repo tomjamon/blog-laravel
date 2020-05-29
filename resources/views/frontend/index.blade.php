@@ -3,15 +3,17 @@
 @section('content')
     <div class="font-sans">
         @foreach ($posts as $post)
-            <!--Title-->
-            <a href="{{ route('front.posts.show', $post->slug) }}" class="font-bold font-sans break-normal text-gray-900 pt-6 pb-2 text-3xl md:text-4xl">
-                {{ $post->title }}
-            </a>
-            <p class="text-sm md:text-base font-normal text-gray-600">
-                {{ $post->created_at->diffForHumans() }}
-                -
-                {{ $post->user->name }}
-            </p>
+            <span>
+                <!--Title-->
+                <a href="{{ route('front.posts.show', $post->slug) }}" class="font-bold font-sans break-normal text-gray-900 pt-6 pb-2 text-3xl md:text-4xl">
+                    {{ $post->title }}
+                </a>
+                <p class="pb-4 text-sm md:text-base font-normal text-gray-600">
+                    {{ $post->created_at->diffForHumans() }}
+                    -
+                    {{ $post->user->name }}
+                </p>
+            </span>
         @endforeach
     </div>
 

@@ -15,20 +15,19 @@
         {{ $post->content }}
     </p>
     <!--Tags -->
-
     <div class="text-base md:text-sm text-gray-500 px-4 py-6">
         Tags:
         @foreach($post->tags as $tag)
             {{ $tag->title }} -
         @endforeach
-        <a href="#" class="text-base md:text-sm text-teal-500 no-underline hover:underline">Link</a> .
-        <a href="#" class="text-base md:text-sm text-teal-500 no-underline hover:underline">Link</a>
+        <!-- <a href="#" class="text-base md:text-sm text-teal-500 no-underline hover:underline">Link</a> -->
     </div>
 
     <!--Divider-->
-    <hr class="border-b-2 border-gray-400 mb-8 mx-4">
 
     <!--Subscribe-->
+    <!--
+    <hr class="border-b-2 border-gray-400 mb-8 mx-4">
     <div class="container px-4">
         <div class="font-sans bg-white rounded-lg shadow-md p-4 text-center">
             <h2 class="font-bold break-normal text-xl md:text-3xl">Subscribe to my Newsletter</h2>
@@ -43,24 +42,36 @@
             </div>
         </div>
     </div>
-    <!-- /Subscribe-->
+    -->
 
-    <!--Divider-->
+    <!-- Divider -->
     <hr class="border-b-2 border-gray-400 mb-8 mx-4">
 
     <!--Next & Prev Links-->
     <div class="font-sans flex justify-between content-center px-4 pb-12">
         <div class="text-left">
-            <span class="text-xs md:text-sm font-normal text-gray-600">&lt; Previous Post</span><br>
+            <span class="text-xs md:text-sm font-normal text-gray-600">&lt; Article précédent</span><br>
             <p><a href="#" class="break-normal text-base md:text-sm text-teal-500 font-bold no-underline hover:underline">Blog title</a></p>
         </div>
         <div class="text-right">
-            <span class="text-xs md:text-sm font-normal text-gray-600">Next Post &gt;</span><br>
+            <span class="text-xs md:text-sm font-normal text-gray-600">Article suivant &gt;</span><br>
             <p><a href="#" class="break-normal text-base md:text-sm text-teal-500 font-bold no-underline hover:underline">Blog title</a></p>
         </div>
     </div>
 
-    <!--/container-->
+    <!-- Comment -->
+    @foreach ($post->comments as $comment)
+        <div>
+            <p>{{ $comment->content }}</p>
+            <small>{{ $comment->user->name }}</small>
+        </div>
+        @foreach ($comment->comments as $subComment)
+            <div class="pl-4">
+                <p>{{ $subComment->content }}</p>
+                <small>{{ $subComment->user->name }}</small>
+            </div>
+        @endforeach
+    @endforeach
 
     <footer class="bg-white border-t border-gray-400 shadow">
     <div class="container max-w-4xl mx-auto flex py-8">

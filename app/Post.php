@@ -18,7 +18,7 @@ class Post extends Model
      */
     public function comments()
     {
-        return $this->hasMany(Comment::class);
+        return $this->hasMany(Comment::class)->where('comment_id',null);
     }
 
     /**
