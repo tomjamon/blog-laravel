@@ -15,8 +15,14 @@
         {{ $post->content }}
     </p>
     <!--Tags -->
+
     <div class="text-base md:text-sm text-gray-500 px-4 py-6">
-        Tags: <a href="#" class="text-base md:text-sm text-teal-500 no-underline hover:underline">Link</a> . <a href="#" class="text-base md:text-sm text-teal-500 no-underline hover:underline">Link</a>
+        Tags:
+        @foreach($post->tags as $tag)
+            {{ $tag->title }} -
+        @endforeach
+        <a href="#" class="text-base md:text-sm text-teal-500 no-underline hover:underline">Link</a> .
+        <a href="#" class="text-base md:text-sm text-teal-500 no-underline hover:underline">Link</a>
     </div>
 
     <!--Divider-->
