@@ -59,19 +59,10 @@
         </div>
     </div>
 
+
     <!-- Comment -->
-    @foreach ($post->comments as $comment)
-        <div>
-            <p>{{ $comment->content }}</p>
-            <small>{{ $comment->user->name }}</small>
-        </div>
-        @foreach ($comment->comments as $subComment)
-            <div class="pl-4">
-                <p>{{ $subComment->content }}</p>
-                <small>{{ $subComment->user->name }}</small>
-            </div>
-        @endforeach
-    @endforeach
+    <comments post_id="{{ $post->id }}"></comments>
+    <hr>
 
     <footer class="bg-white border-t border-gray-400 shadow">
     <div class="container max-w-4xl mx-auto flex py-8">
@@ -103,9 +94,6 @@
                 </div>
             </div>
         </div>
-
-
-
     </div>
 </footer>
 
