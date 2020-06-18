@@ -2,6 +2,7 @@
 
 namespace App;
 
+use Illuminate\Database\Eloquent\HigherOrderBuilderProxy;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
@@ -12,6 +13,18 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
  */
 class Comment extends Model
 {
+    /**
+     * @var string[]
+     */
+    public $appends = ['author'];
+
+    /**
+     * @return HigherOrderBuilderProxy|mixed
+     */
+    public function getAuthorAttribute()
+    {
+        return $this->user->name;
+    }
     /**
      * @return BelongsTo
      */
