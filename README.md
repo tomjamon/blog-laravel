@@ -1,6 +1,6 @@
 # Learn Laravel : Créer un blog communautaire
 
-## Episode 6 - Relations entre modèles
+## Episode 8 - Commentaires en VueJS
 
 Projet de création d'un blog communautaire
 
@@ -10,6 +10,9 @@ Projet de création d'un blog communautaire
 - [Migrations](https://laravel.com/docs/migrations)
 - [Tailwind](https://tailwindcss.com/docs/installation)
 - [Relations](https://laravel.com/docs/eloquent-relationships)
+- [VueJS](https://fr.vuejs.org/v2/guide/index.html) (nouveau)
+- [Laravel Passport](https://laravel.com/docs/passport) (nouveau)
+
 ## A propos
 
 Ce projet est issu du cours [Learn Laravel](https://www.udemy.com/course/learn-laravel/) sur Udemy.
