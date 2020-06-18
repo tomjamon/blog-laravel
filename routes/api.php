@@ -14,9 +14,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-/*
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
-});
-*/
+Route::middleware('auth:api')->get('user','Api\UserController@user');
+
+Route::middleware('auth:api')->post('comments/create','Api\CommentController@create');
+
+Route::middleware('api')->get('articles/{post}', 'Api\PostController@getComments');
+
+
 

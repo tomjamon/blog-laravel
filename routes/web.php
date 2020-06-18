@@ -25,9 +25,6 @@ Route::get('/', 'FrontController@index')->name('front.index');
  * Routes pour les articles
  */
 Route::get('/article/{slug}', 'FrontController@article')->name('front.posts.show');
-
-
-
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::prefix('admin')->group(function() {
