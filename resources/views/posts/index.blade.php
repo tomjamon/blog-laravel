@@ -18,16 +18,18 @@
                                 <tr>
                                     <td>ID</td>
                                     <td>Titre</td>
+                                    <td>Slug</td>
                                     <td>Crée le</td>
                                     <td>Modifié le</td>
                                     <td>Actions</td>
                                 </tr>
                             </thead>
                             <tbody>
-                            @foreach($posts as $post)
+                            @foreach ($posts as $post)
                                 <tr>
                                     <td>{{ $post->id }}</td>
                                     <td>{{ $post->title }}</td>
+                                    <td>{{ $post->slug }}</td>
                                     <td>{{ $post->created_at->diffForHumans() }}</td>
                                     <td>{{ $post->updated_at->diffForHumans() }}</td>
                                     <td>

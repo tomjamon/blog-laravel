@@ -19,6 +19,10 @@
                             @error('title')
                                 <div class="alert alert-danger"> {{ $message }}</div>
                             @enderror
+                            <input value="{{ $post->slug }}" placeholder="slug" class="form-control" type="slug" name="slug">
+                            @error('slug')
+                            <div class="alert alert-danger"> {{ $message }}</div>
+                            @enderror
                             <br>
                             <button class="btn btn-primary" type="submit">Modifier l'article</button>
                         </form>

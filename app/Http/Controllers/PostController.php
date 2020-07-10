@@ -7,6 +7,7 @@ use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\View\View;
 
 /**
@@ -54,11 +55,14 @@ class PostController extends Controller
     {
         $data = $request->validate([
             'title' => 'required|unique:posts|max:255',
+            'slug' => 'required|unique:posts|max:255',
         ]);
 
         if(!empty($data)) {
             $post = new Post;
+            $post->user_id = Auth::id();
             $post->title = $data['title'];
+            $post->slug = $data['slug'];
             $post->save();
         }
 
@@ -91,11 +95,14 @@ class PostController extends Controller
     {
         $data = $request->validate([
             'title' => 'required|unique:posts|max:255',
+            'slug' => 'required|unique:posts|max:255',
         ]);
 
-        if(!empty($data)) {
+        if (!empty($data)) {
             $post = Post::find($id);
+            $post->user_id = Auth::id();
             $post->title = $data['title'];
+            $post->slug = $data['slug'];
             $post->save();
         }
 

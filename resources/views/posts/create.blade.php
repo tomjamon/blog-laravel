@@ -17,7 +17,11 @@
                             @csrf
                             <input placeholder="title" class="form-control" type="text" name="title">
                             @error('title')
-                                <div class="alert alert-danger"> {{ $message }}</div>
+                            <div class="alert alert-danger"> {{ $message }}</div>
+                            @enderror
+                            <input placeholder="slug" class="form-control" type="slug" name="slug">
+                            @error('slug')
+                            <div class="alert alert-danger"> {{ $message }}</div>
                             @enderror
                             <br>
                             <button class="btn btn-primary" type="submit">Ajouter l'article</button>
