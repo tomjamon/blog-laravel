@@ -1,51 +1,13 @@
 @extends('layouts.app')
 
 @section('content')
-
     @foreach ($tag->posts as $post)
         <x-post_card :post="$post"></x-post_card>
     @endforeach
-
-<!--Divider-->
-<hr class="border-b-2 border-gray-400 mb-8 mx-4">
-
-<!--/container-->
-
-<footer class="bg-white border-t border-gray-400 shadow">
-    <div class="container max-w-4xl mx-auto flex py-8">
-
-        <div class="w-full mx-auto flex flex-wrap">
-            <div class="flex w-full md:w-1/2 ">
-                <div class="px-8">
-                    <h3 class="font-bold text-gray-900">A propos</h3>
-                    <p class="py-4 text-gray-600 text-sm">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas vel mi ut felis tempus commodo nec id erat. Suspendisse consectetur dapibus velit ut lacinia.
-                    </p>
-                </div>
-            </div>
-
-            <div class="flex w-full md:w-1/2">
-                <div class="px-8">
-                    <h3 class="font-bold text-gray-900">Social</h3>
-                    <ul class="list-reset items-center text-sm pt-3">
-                        <li>
-                            <a class="inline-block text-gray-600 no-underline hover:text-gray-900 hover:text-underline py-1" href="#">Add social link</a>
-                        </li>
-                        <li>
-                            <a class="inline-block text-gray-600 no-underline hover:text-gray-900 hover:text-underline py-1" href="#">Add social link</a>
-                        </li>
-                        <li>
-                            <a class="inline-block text-gray-600 no-underline hover:text-gray-900 hover:text-underline py-1" href="#">Add social link</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-
-
-
+    <!-- Pagination -->
+    <div class="flex items-center py-8">
+        <a href="#" class="h-10 w-10 bg-blue-800 hover:bg-blue-600 font-semibold text-white text-sm flex items-center justify-center">1</a>
+        <a href="#" class="h-10 w-10 font-semibold text-gray-800 hover:bg-blue-600 hover:text-white text-sm flex items-center justify-center">2</a>
+        <a href="#" class="h-10 w-10 font-semibold text-gray-800 hover:text-gray-900 text-sm flex items-center justify-center ml-3">Next <svg class="svg-inline--fa fa-arrow-right fa-w-14 ml-2" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="arrow-right" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" data-fa-i2svg=""><path fill="currentColor" d="M190.5 66.9l22.2-22.2c9.4-9.4 24.6-9.4 33.9 0L441 239c9.4 9.4 9.4 24.6 0 33.9L246.6 467.3c-9.4 9.4-24.6 9.4-33.9 0l-22.2-22.2c-9.5-9.5-9.3-25 .4-34.3L311.4 296H24c-13.3 0-24-10.7-24-24v-32c0-13.3 10.7-24 24-24h287.4L190.9 101.2c-9.8-9.3-10-24.8-.4-34.3z"></path></svg><!-- <i class="fas fa-arrow-right ml-2"></i> --></a>
     </div>
-</footer>
-
-
 @endsection

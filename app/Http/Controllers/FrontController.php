@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Post;
+use App\Tag;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\View\View;
@@ -21,8 +22,9 @@ class FrontController extends Controller
     public function index()
     {
         $posts = Post::all();
+        $tags = Tag::all();
 
-        return view('frontend.index', compact('posts'));
+        return view('frontend.index', compact('posts','tags'));
     }
 
     /**
@@ -34,7 +36,8 @@ class FrontController extends Controller
     public function article($slug)
     {
         $post = Post::where('slug', '=', $slug)->first();
+        $tags = Tag::all();
 
-        return view('frontend.posts.show', compact('post'));
+        return view('frontend.posts.show', compact('post', 'tags'));
     }
 }
