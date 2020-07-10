@@ -24,8 +24,12 @@ Route::get('/', 'FrontController@index')->name('front.index');
 /**
  * Routes pour les articles
  */
-Route::get('/article/{slug}', 'FrontController@article')->name('front.posts.show');
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/article/{slug}', 'FrontController@article')->name('front.posts.show');
+
+Route::get('/tag/{slug}', 'TagController@show')->name('front.tags.show');
+
+
 
 Route::prefix('admin')->group(function() {
     Route::resource('posts', 'PostController');
