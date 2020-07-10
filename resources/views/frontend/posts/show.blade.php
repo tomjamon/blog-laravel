@@ -18,7 +18,9 @@
     <div class="text-base md:text-sm text-gray-500 px-4 py-6">
         Tags:
         @foreach($post->tags as $tag)
-            {{ $tag->title }} -
+            <a href="{{ route('front.tags.show', ['slug' => $tag->slug]) }}">
+                {{ $tag->title }}
+            </a>
         @endforeach
         <!-- <a href="#" class="text-base md:text-sm text-teal-500 no-underline hover:underline">Link</a> -->
     </div>

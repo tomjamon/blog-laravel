@@ -1,26 +1,14 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="font-sans">
-        @foreach ($posts as $post)
-            <span>
-                <!--Title-->
-                <a href="{{ route('front.posts.show', $post->slug) }}" class="font-bold font-sans break-normal text-gray-900 pt-6 pb-2 text-3xl md:text-4xl">
-                    {{ $post->title }}
-                </a>
-                <p class="pb-4 text-sm md:text-base font-normal text-gray-600">
-                    {{ $post->created_at->diffForHumans() }}
-                    -
-                    {{ $post->user->name }}
-                </p>
-            </span>
-        @endforeach
-    </div>
+
+    @foreach ($posts as $post)
+        <x-post_card :post="$post"></x-post_card>
+    @endforeach
 
 <!--Divider-->
 <hr class="border-b-2 border-gray-400 mb-8 mx-4">
 
-</div>
 <!--/container-->
 
 <footer class="bg-white border-t border-gray-400 shadow">
@@ -29,7 +17,7 @@
         <div class="w-full mx-auto flex flex-wrap">
             <div class="flex w-full md:w-1/2 ">
                 <div class="px-8">
-                    <h3 class="font-bold text-gray-900">About</h3>
+                    <h3 class="font-bold text-gray-900">A propos</h3>
                     <p class="py-4 text-gray-600 text-sm">
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas vel mi ut felis tempus commodo nec id erat. Suspendisse consectetur dapibus velit ut lacinia.
                     </p>
