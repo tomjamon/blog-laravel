@@ -74,22 +74,25 @@
         </div>
     </header>
 
-    <nav class="w-full py-4 border-t border-b bg-gray-100" x-data="{ open: false }">
-        <div class="block sm:hidden">
-            <a href="#" class="block md:hidden text-base font-bold uppercase text-center flex justify-center items-center" @click="open = !open">
-                Topics <svg :class="open ? 'fa-chevron-down': 'fa-chevron-up'" class="svg-inline--fa fa-chevron-up fa-w-14 ml-2" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="chevron-up" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" data-fa-i2svg=""><path fill="currentColor" d="M240.971 130.524l194.343 194.343c9.373 9.373 9.373 24.569 0 33.941l-22.667 22.667c-9.357 9.357-24.522 9.375-33.901.04L224 227.495 69.255 381.516c-9.379 9.335-24.544 9.317-33.901-.04l-22.667-22.667c-9.373-9.373-9.373-24.569 0-33.941L207.03 130.525c9.372-9.373 24.568-9.373 33.941-.001z"></path></svg><!-- <i :class="open ? 'fa-chevron-down': 'fa-chevron-up'" class="fas ml-2 fa-chevron-up"></i> -->
-            </a>
-        </div>
-        <div :class="open ? 'block': 'hidden'" class="w-full flex-grow sm:flex sm:items-center sm:w-auto hidden">
-            <div class="w-full container mx-auto flex flex-col sm:flex-row items-center justify-center text-sm font-bold uppercase mt-0 px-6 py-2">
-                @foreach ($tags as $tag)
-                    <a href="{{ route('front.tags.show', ['slug' => $tag->slug]) }}" class="hover:bg-gray-400 rounded py-2 px-4 mx-2">
-                        {{ $tag->title }}
-                    </a>
-                @endforeach
+    @if (isset($tags))
+        <nav class="w-full py-4 border-t border-b bg-gray-100" x-data="{ open: false }">
+            <div class="block sm:hidden">
+                <a href="#" class="block md:hidden text-base font-bold uppercase text-center flex justify-center items-center" @click="open = !open">
+                    Topics <svg :class="open ? 'fa-chevron-down': 'fa-chevron-up'" class="svg-inline--fa fa-chevron-up fa-w-14 ml-2" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="chevron-up" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" data-fa-i2svg=""><path fill="currentColor" d="M240.971 130.524l194.343 194.343c9.373 9.373 9.373 24.569 0 33.941l-22.667 22.667c-9.357 9.357-24.522 9.375-33.901.04L224 227.495 69.255 381.516c-9.379 9.335-24.544 9.317-33.901-.04l-22.667-22.667c-9.373-9.373-9.373-24.569 0-33.941L207.03 130.525c9.372-9.373 24.568-9.373 33.941-.001z"></path></svg><!-- <i :class="open ? 'fa-chevron-down': 'fa-chevron-up'" class="fas ml-2 fa-chevron-up"></i> -->
+                </a>
             </div>
-        </div>
-    </nav>
+            <div :class="open ? 'block': 'hidden'" class="w-full flex-grow sm:flex sm:items-center sm:w-auto hidden">
+                <div class="w-full container mx-auto flex flex-col sm:flex-row items-center justify-center text-sm font-bold uppercase mt-0 px-6 py-2">
+                    {{-- $tags ?? '' --}}
+                    @foreach ($tags as $tag)
+                        <a href="{{ route('front.tags.show', ['slug' => $tag->slug]) }}" class="hover:bg-gray-400 rounded py-2 px-4 mx-2">
+                            {{ $tag->title }}
+                        </a>
+                    @endforeach
+                </div>
+            </div>
+        </nav>
+    @endif
 
     <div id="app" class="container mx-auto flex flex-wrap py-6">
         <!-- Posts Section -->
