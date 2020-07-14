@@ -64,7 +64,7 @@
                 if (this.message !== '') {
                     this.chargement = true;
                     let obj = this;
-                    axios.post('http://blog.test/api/comments/create', {
+                    axios.post('api/comments/create', {
                         message: this.message,
                         post_id: this.post_id,
                         comment_id: this.comment_id,
@@ -76,7 +76,7 @@
             },
             getPost() {
                 let obj = this;
-                axios.get('http://blog.test/api/articles/' + this.post_id)
+                axios.get('api/articles/' + this.post_id)
                 .then(function (response) {
                     obj.comments = response.data;
                     obj.chargement = false;
