@@ -55,10 +55,10 @@
                     <p><a href="#" class="text-blue-700 text-sm font-bold uppercase pb-4 no-underline hover:underline">Blog title</a></p>
                 </div>
             </div>
-
-            <!-- Comment -->
-            <comments post_id="{{ $post->id }}"></comments>
         </div>
     </article>
+
+    <!-- Comment -->
+    <comments post_id="{{ $post->id }}"></comments>
 
 @endsection
