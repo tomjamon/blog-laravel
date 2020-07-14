@@ -1,9 +1,7 @@
 <template>
-    <div>
-        <h2>Liste des commentaires</h2>
-        <hr>
+    <div class="w-full">
         <div v-if="!chargement" v-for="comment in comments">
-            <div class="bg-white shadow-md w-full p-4 my-4">
+            <div class="bg-white shadow w-full p-4 my-4">
                 <h3 class="font-bold text-gray-900">{{ comment.author }}</h3>
                 <br>
                 <p class="text-gray-600 text-sm">
@@ -25,14 +23,12 @@
             Chargement ...
         </div>
         <hr>
-        <div v-if="user" class="bg-white shadow-lg w-full p-4 my-4">
+        <div v-if="user && user.email" class="bg-white shadow-lg w-full p-4 my-4">
+            <span class="text-3xl font-bold hover:text-gray-700 pb-4">Ajoutre un commentaire</span>
             <h3 class="font-bold text-gray-900">{{ user.name }}</h3>
-            <br>
-            <small v-if="comment_id" v-on:click="cancelResponse">Annuler répondre</small>
-            <br>
-            <input placeholder="Votre commentaire" class="bg-gray-200 w-full" v-model="message" type="text">
-            <br>
-            <button class="bg-blue-100 p-4 m-2 w-full no-border" v-on:click="sendComment">Envoyer mon commentaire</button>
+            <span class="text-xm" v-if="comment_id" v-on:click="cancelResponse">Annuler répondre</span>
+            <textarea placeholder="Votre commentaire" class="h-32 bg-gray-100 w-full" v-model="message"></textarea>
+            <button class="w-full bg-blue-800 text-white font-bold text-sm uppercase rounded hover:bg-blue-700 flex items-center justify-center px-2 py-3 mt-4" v-on:click="sendComment">Envoyer mon commentaire</button>
         </div>
     </div>
 </template>
@@ -58,6 +54,7 @@
         },
         methods: {
             cancelResponse() {
+                console.log(this.user);
                 this.comment_id = null;
             },
             responseComment(commentId) {
