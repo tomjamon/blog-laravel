@@ -54,7 +54,6 @@
         },
         methods: {
             cancelResponse() {
-                console.log(this.user);
                 this.comment_id = null;
             },
             responseComment(commentId) {
@@ -64,7 +63,7 @@
                 if (this.message !== '') {
                     this.chargement = true;
                     let obj = this;
-                    axios.post('api/comments/create', {
+                    axios.post('/api/comments/create', {
                         message: this.message,
                         post_id: this.post_id,
                         comment_id: this.comment_id,
@@ -76,7 +75,7 @@
             },
             getPost() {
                 let obj = this;
-                axios.get('api/articles/' + this.post_id)
+                axios.get('/api/articles/' + this.post_id)
                 .then(function (response) {
                     obj.comments = response.data;
                     obj.chargement = false;
