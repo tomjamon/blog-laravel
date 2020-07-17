@@ -1,6 +1,6 @@
 # Learn Laravel : Créer un blog communautaire
 
-## Episode 9 - Liste des articles d'un tag
+## Episode 10 - Factories et Seeding
 
 Projet de création d'un blog communautaire
 
@@ -12,7 +12,10 @@ Projet de création d'un blog communautaire
 - [Relations](https://laravel.com/docs/eloquent-relationships)
 - [VueJS](https://fr.vuejs.org/v2/guide/index.html)
 - [Laravel Passport](https://laravel.com/docs/passport)
-- [Laravel Component](https://laravel.com/docs/7.x/blade#components) (nouveau)
+- [Laravel Component](https://laravel.com/docs/7.x/blade#components)
+- [Seeding](https://laravel.com/docs/7.x/seeding) (nouveau)
+- [Factories](https://laravel.com/docs/7.x/database-testing#writing-factories) (nouveau)
+- [Faker](https://github.com/fzaninotto/Faker) (nouveau)
 
 ## A propos
 
